@@ -1,0 +1,110 @@
+* {
+  font-family: 'Quantico', sans-serif;
+    color: hsl(221, 30%, 8%);
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  background-color:rgb(255, 225, 148);
+  margin: 0;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Header */
+
+header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
+  background-color:rgb(76, 76, 109);
+  font-size: 14px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 700px;
+  padding: 20px 30px;
+  z-index: 100;
+}
+
+.title {
+
+}
+
+.title p {
+  color: rgb(255, 225, 148);
+  margin-block: -4px;
+}
+
+nav a {
+  color: rgb(255, 225, 148);
+}
+
+
+/* Main */
+
+.paper {
+  margin-left: 10px;
+}
+
+.scissors {
+  margin-left: 20px;
+}
+
+.game-container {
+    gap: 30px;
+}
+
+.game-container div {
+    width: 100px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.buttons button {
+    cursor: pointer;
+    border: 1px solid rgb(76, 76, 109);
+    background-color: transparent;
+}
+
+.buttons button:hover {
+   
+}
+
+.vs {
+  color: rgb(76, 76, 109);
+}
+
+#computer {
+  font-weight: 600;
+  color: rgb(76, 76, 109);
+}
+
+.result-container {
+    margin-top: 50px;
+    gap: 8px;
+}
+
+.result-container p {  
+color: rgb(76, 76, 109);
+}
+
+.result {
+  font-weight: 600;
+}
+
+.img {
+  width: 80px;
+}
