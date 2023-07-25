@@ -122,6 +122,8 @@ button {
 .computer {
   font-weight: 600;
   color: var(--yellow);
+  min-width: 92px;
+  height: 83.66px;
 }
 
 .results-container {
