@@ -1,58 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>RPS</title>
-        <link rel = "stylesheet" href = "styles.css"/>
-        <script src = "index.js"></script>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap" rel="stylesheet">
-        
-    </head>
-    <body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>RPS</title>
+		<link rel="stylesheet" href="styles.css" />
+		<script src="index.js" defer></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<header>
+			<div class="header-container">
+				<div class="title">
+					<img src = "images/RPS-logo.svg"/>
+					<p>RPS</p>
+				</div>
+				<nav>
+					<a>Projects</a>
+				</nav>
+			</div>
+		</header>
 
-        <header>
-            <div class = "header-container">
-                <div class = "title">
-                    <p class = "rock">Rock</p>
-                    <p class = "paper">Paper</p>
-                    <p class = "scissors">Scissors</p>
-                </div> 
-                <nav>
-                    <a>Projects</a>
-                </nav>
-            </div>
-        </header>
-        
+		<main>
+			
+			<div class = "game-container flex-center">
+				<div class = "buttons flex-center">
+					<div id = "rock" class="button-container flex-center">
+						<button id = "rock" onclick="play(1);">
+							<img class="img" src="images/rock.png" />
+						</button>
+					</div>
 
-        <div class = "flex-center game-container">
-            <div class = "buttons">
-                <div class = "flex-center button">
-                    <button onclick = "play(1);"><img class = "img" src = "images/rock.png"></button>
-                </div>
-                
-                <div class = "flex-center button">
-                    
-                    <button onclick = "play(2);"><img class = "img" src = "images/paper.png"></button>
-                </div>
+					<div id = "paper" class= "button-container flex-center">
+						<button onclick="play(2);">
+							<img class="img" src="images/paper.png" />
+						</button>
+					</div>
 
-                <div class = "flex-center button">
-                    
-                    <button onclick = "play(3);"><img class = "img rock" src = "images/scissors.png"></button>
-                </div>
-            </div>
+					<div id = "scissors" class="button-container flex-center">
+						<button onclick="play(3);">
+							<img id = "scissors" class="img" src="images/scissors.png" />
+						</button>
+					</div>
+				</div>
 
-            <div class = "flex-center vs">Vs</div>
+				<div class="vs flex-center">Vs</div>
+				
+				<button class="computer">?</button>
+				
+			</div>
 
-            <div id = "computer">?</div>
-        </div>
+			<div class="results-container">
+				<div class="current-result-container flex-center">
+					<p class="text">Result:</p>
+					<p id="result"></p>
+				</div>
+				<div class="score">
+					<div>
+						<p>Wins:</p>
+						<p id="wins">0</p>
+					</div>
+					<div>
+						<p>Losses:</p>
+						<p id="losses">0</p>
+					</div>
 
-        <div class = "flex-center result-container">
-            <p class = "result">Result:</p><p id = "result"></p>
-        </div>
+					<div>
+						<p>Ties:</p>
+						<p id="ties">0</p>
+					</div>
+				</div>
+				<div class="clear flex-center">
+					<button onclick="clearResult();">Clear</button>
+				</div>
+			</div>
+		</main>
 
-    </body>
+	</body>
 </html>

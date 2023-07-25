@@ -1,13 +1,27 @@
+:root {
+  --white: hsl(46, 41%, 92%);
+  --black: hsl(228, 29%, 10%);
+  --blue: hsl(224, 70%, 60%);
+  --gray: hsl(224, 19%, 15%);
+  --light-gray: hsl(224, 19%, 50%);
+  --yellow: hsl(41, 77%, 56%);
+
+  --big: 19px;
+  --small: 14px;
+}
+
 * {
   font-family: 'Quantico', sans-serif;
-    color: hsl(221, 30%, 8%);
-    margin: 0;
-    padding: 0;
+  color: var(--white);
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background-color:rgb(255, 225, 148);
-  margin: 0;
+  background-color: var(--black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .flex-center {
@@ -19,11 +33,11 @@ body {
 /* Header */
 
 header {
+  background-color: var(--gray);
   display: flex;
   justify-content: center;
+  width: 100%;
   margin-bottom: 80px;
-  background-color:rgb(76, 76, 109);
-  font-size: 14px;
 }
 
 .header-container {
@@ -36,75 +50,163 @@ header {
 }
 
 .title {
-
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .title p {
-  color: rgb(255, 225, 148);
-  margin-block: -4px;
+  margin-block: -12px;
+  font-size: var(--big);
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.title img {
+  width: 40px;
 }
 
 nav a {
-  color: rgb(255, 225, 148);
+  color: var(--white);
 }
 
 
 /* Main */
 
-.paper {
-  margin-left: 10px;
-}
-
-.scissors {
-  margin-left: 20px;
+main {
+  width: 30%;
 }
 
 .game-container {
-    gap: 30px;
+  gap: 30px;
+  height: 289px;
 }
 
-.game-container div {
-    width: 100px;
+button {
+  box-shadow: -1px 1px 6px hsla(0, 0%, 2%, 0.3);
 }
 
 .buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.buttons button {
-    cursor: pointer;
-    border: 1px solid rgb(76, 76, 109);
-    background-color: transparent;
+.buttons button,
+.clear button {
+  cursor: pointer;
+  transition: background-color 0.5s;
 }
 
-.buttons button:hover {
-   
+.buttons button,
+.clear button,
+.computer {
+  border: none;
+  border-radius: 3px;
+  background-color: var(--gray);
+  padding: 6px;
+}
+
+.buttons button:hover, .clear button:hover {
+  background-color: var(--blue);
+}
+
+.buttons button:active,
+.clear button:active {
+  background-color: var(--light-gray);
 }
 
 .vs {
-  color: rgb(76, 76, 109);
+  color: var(--white);
 }
 
-#computer {
+.computer {
   font-weight: 600;
-  color: rgb(76, 76, 109);
+  color: var(--yellow);
 }
 
-.result-container {
-    margin-top: 50px;
-    gap: 8px;
+.results-container {
+  margin-top: 50px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
 }
 
-.result-container p {  
-color: rgb(76, 76, 109);
+.current-result-container {
+  margin: auto;
+  gap: 8px;
 }
 
-.result {
-  font-weight: 600;
+.current-result-container .text {  
+  color: var(--blue);
+}
+
+#result {
+  font-size: var(--small);
+}
+
+.score p {
+  color: var(--light-gray);
+  font-size: var(--small);
 }
 
 .img {
   width: 80px;
+}
+
+.score {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 45px;
+}
+
+.score div {
+  display: flex;
+  gap: 6px;
+}
+
+#wins {
+  color: green;
+}
+
+#losses {
+  color: brown;
+}
+
+#ties {
+  color:var(--light-gray);
+}
+
+.clear {
+  margin-top: 30px;
+}
+
+.clear button {
+  padding: 6px 10px;
+  color: var(--white)
+}
+
+/* Animation Test */
+
+#rock,
+#scissors {
+  position: relative;
+}
+
+.animate-rock {
+  animation: rock .999s;
+}
+
+.animate-scissors {
+  animation: scissors .999s;
+}
+
+@keyframes rock {
+  0%   {left: 0px; top: 0px;}
+  100% {left: 0px; top: 100px;}
+}
+
+@keyframes scissors {
+  0%   {left: 0px; top: 0px;}
+  100% {left: 0px; top: -100px;}
 }
