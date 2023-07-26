@@ -110,6 +110,7 @@ function displayChoiceAnimation(number){
     animateElement += selected;
     selectedElement.classList.add(animateElement);
   }
+  
 }
 
 function continueGame() {
@@ -117,6 +118,8 @@ function continueGame() {
   let selectedElement = document.getElementById(selected);
   let nonSelected1, nonSelected2;
 
+
+  selectedElement.className = '';
   document.getElementById('computer').innerHTML = '?';
   document.getElementById('continue').style.opacity = '0';
   document.getElementById('continue').style.pointerEvents = 'none';
@@ -151,6 +154,9 @@ function continueGame() {
       document.getElementById(nonSelected1).style.pointerEvents = 'all';
       document.getElementById(nonSelected2).style.pointerEvents = 'all';
     }, 300);
+    setTimeout(function(){
+      selectedElement.className = '';
+    }, 660);
   }
 }
 
