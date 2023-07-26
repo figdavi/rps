@@ -191,7 +191,7 @@ button {
   border-radius: 3px;
   background-color: var(--gray);
   padding: 6px;
-  transition: opacity 0.5s, background-color 0.3s;
+  transition: opacity 0.3s, background-color 0.3s !important;
 }
 
 button:hover, .clear button:hover {
