@@ -1,4 +1,4 @@
-let playerChoice, computerChoice;
+let playerChoice;
 
 const score = JSON.parse(localStorage.getItem('score')) || {
   wins: 0,
@@ -8,13 +8,11 @@ const score = JSON.parse(localStorage.getItem('score')) || {
 
 updateScoreElement();
 
-
-
 function play(number) {
   playerChoice = number;
-  computerChoice = Math.floor(Math.random() * 3 + 1);
-  displayChoiceAnimation(number);
+  let computerChoice = Math.floor(Math.random() * 3 + 1);
   displayCmpChoice(computerChoice);
+  displayChoiceAnimation(number);
 
   if (computerChoice == playerChoice) {
     tie();
@@ -45,35 +43,139 @@ function play(number) {
   }
   localStorage.setItem('score', JSON.stringify(score));
   updateScoreElement();
+
+  let continueElement = document.getElementById('continue');
+  continueElement.style.opacity = '1';
+  continueElement.style.pointerEvents = 'all';
 }
 
 function won(){
-  document.querySelector("#result").innerHTML = "You won!";
-  document.querySelector('#wins').innerHTML = ++score.wins;
+  document.getElementById('result').innerHTML = 'You <span style = "color: green">Won!</span>';
+  document.getElementById('wins').innerHTML = ++score.wins;
 }
 
 function lost(){
-  document.querySelector("#result").innerHTML = "You lost!";
-  document.querySelector('#losses').innerHTML = ++score.losses;
+  document.getElementById('result').innerHTML = 'You <span style = "color: brown">lost!</span>';
+  document.getElementById('losses').innerHTML = ++score.losses;
 }
 
 function tie(){
-  document.querySelector("#result").innerHTML = "It's a tie!";
-  document.querySelector('#ties').innerHTML = ++score.ties;
+  document.getElementById('result').innerHTML = 'It\'s a <span style = "color: var(--light-gray)">tie!</span>';
+  document.getElementById('ties').innerHTML = ++score.ties;
+}
+
+function convertNumberChoice(number){
+  if(number === 1) {
+    return 'rock';
+  } else if (number === 2) {
+    return 'paper';
+  } else {
+    return 'scissors';
+  }
 }
 
 function displayCmpChoice(number) {
-  switch(number) {
-    case 1:
-      document.querySelector('.computer').innerHTML = '<img class = "img"  src = "images/rock.png">'
-      break;
-    case 2:
-      document.querySelector('.computer').innerHTML = '<img class = "img"  src = "images/paper.png">'
-      break;
-    case 3:
-      document.querySelector('.computer').innerHTML = '<img class = "img" src = "images/scissors.png">'
-      break;
+  let selected = convertNumberChoice(number);
+
+  document.getElementById('computer').innerHTML = `<img class = "img"  src = "images/${selected}.png">`
+
+}
+
+
+function displayChoiceAnimation(number){
+  let selected = convertNumberChoice(number);
+  let selectedElement = document.getElementById(selected);
+  let nonSelected1, nonSelected2;
+
+  if (selected === 'paper') {
+    nonSelected1 = 'rock';
+    nonSelected2 = 'scissors';
+  } else if (selected === 'rock') {
+    nonSelected1 = 'paper';
+    nonSelected2 = 'scissors';
+  } else {
+    nonSelected1 = 'rock';
+    nonSelected2 = 'paper';
   }
+  
+  selectedElement.style.pointerEvents = 'none';
+  document.getElementById(nonSelected1).style.pointerEvents = 'none';
+  document.getElementById(nonSelected2).style.pointerEvents = 'none';
+  document.getElementById(nonSelected1).style.opacity = '0';
+  document.getElementById(nonSelected2).style.opacity = '0';
+
+  if(selected != 'paper') {
+    let animateElement = 'animate-'
+    animateElement += selected;
+    selectedElement.classList.add(animateElement);
+
+    setTimeout(function(){
+      selectedElement.style.gridArea = '2 / 1 / 3 / 2';
+      selectedElement.classList.remove(animateElement);
+    }, 700);
+  }
+}
+
+function continueGame() {
+  let selected = convertNumberChoice(playerChoice);
+  let selectedElement = document.getElementById(selected);
+  let nonSelected1, nonSelected2;
+
+  document.getElementById('computer').innerHTML = '?';
+  document.getElementById('continue').style.opacity = '0';
+  document.getElementById('continue').style.pointerEvents = 'none';
+  document.getElementById('result').innerHTML = '';
+
+  if (selected === 'paper') {
+    nonSelected1 = 'rock';
+    nonSelected2 = 'scissors';
+  } else if (selected === 'rock') {
+    nonSelected1 = 'paper';
+    nonSelected2 = 'scissors';
+  } else {
+    nonSelected1 = 'paper';
+    nonSelected2 = 'rock';
+  }
+  
+  if(selected === 'paper') {
+    document.getElementById(nonSelected1).style.opacity = '1';
+    document.getElementById(nonSelected2).style.opacity = '1';
+  } else {
+
+    let animateElement = 'animate-' + nonSelected2; //NonSel2 plays opposite animation, if sel=rock, nonSel2=scissors and vice-versa
+
+    selectedElement.classList.add(animateElement);
+
+    setTimeout(function(){
+      document.getElementById(nonSelected1).style.opacity = '1';
+      document.getElementById(nonSelected2).style.opacity = '1';
+      if(selected === 'scissors') {
+        selectedElement.style.gridArea = '3 / 1 / 4 / 2';
+        selectedElement.classList.remove(animateElement);
+      } else {
+        selectedElement.style.gridArea = '1 / 1 / 2 / 2'
+        selectedElement.classList.remove(animateElement);
+      }
+    }, 700);
+  }
+
+  selectedElement.style.pointerEvents = 'all';
+  document.getElementById(nonSelected1).style.pointerEvents = 'all';
+  document.getElementById(nonSelected2).style.pointerEvents = 'all';
+}
+
+function clearResult() {
+  score.wins = 0;
+  score.losses = 0;
+  score.ties = 0;
+  updateScoreElement();
+  localStorage.removeItem('score');
+}
+
+function updateScoreElement() {
+  document.getElementById('wins').innerHTML = score.wins;
+  document.getElementById('losses').innerHTML = score.losses;
+  document.getElementById('ties').innerHTML = score.ties;
 }
 
 /*
@@ -103,72 +205,4 @@ function displayPlayerChoice(number) {
   document.querySelector('.buttons').style.gap = '0';
 }
 */
-
-function clearResult() {
-  score.wins = 0;
-  score.losses = 0;
-  score.ties = 0;
-  updateScoreElement();
-  localStorage.removeItem('score');
-}
-
-function updateScoreElement() {
-  document.querySelector('#wins').innerHTML = score.wins;
-  document.querySelector('#losses').innerHTML = score.losses;
-  document.querySelector('#ties').innerHTML = score.ties;
-}
-
-/* Animation Test */
-
-function displayChoiceAnimation(number){
-  let selected, nonSelected1, nonSelected2;
-  if(number === 1) {
-    selected = 'rock';
-  } else if (number === 2) {
-    selected = 'paper';
-  } else {
-    selected = 'scissors';
-  }
-
-  switch(selected) {
-    case 'rock':
-      nonSelected1 = 'paper';
-      nonSelected2 = 'scissors';
-      document.getElementById(selected).style.pointerEvents = 'none';
-      document.getElementById(nonSelected1).style.opacity = '0';
-      document.getElementById(nonSelected2).style.opacity = '0';
-      document.getElementById(selected).classList.toggle('animate-rock');
-
-      setTimeout(function(){
-        document.getElementById(nonSelected1).innerHTML = '';
-        document.getElementById(nonSelected2).innerHTML = '';
-        document.querySelector('.buttons').style.gap = '0';
-      }, 1000);
-      break;
-
-    case 'paper':
-      nonSelected1 = 'rock';
-      nonSelected2 = 'scissors';
-      document.getElementById(selected).style.pointerEvents = 'none';
-      document.getElementById(nonSelected1).innerHTML = '';
-      document.getElementById(nonSelected2).innerHTML = '';
-      document.querySelector('.buttons').style.gap = '0';
-      break;
-    
-    case 'scissors':
-      nonSelected1 = 'rock';
-      nonSelected2 = 'paper';
-      document.getElementById(selected).style.pointerEvents = 'none';
-      document.getElementById(nonSelected1).style.opacity = '0';
-      document.getElementById(nonSelected2).style.opacity = '0';
-      document.getElementById(selected).classList.toggle('animate-scissors');
-
-      setTimeout(function(){
-        document.querySelector('.buttons').style.gap = '0';
-        document.getElementById(nonSelected1).innerHTML = '';
-        document.getElementById(nonSelected2).innerHTML = '';
-      }, 1000);
-      break;
-  }
-}
 

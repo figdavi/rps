@@ -17,48 +17,20 @@
 	<body>
 		<header>
 			<div class="header-container">
-				<div class="title">
+				<a href = "index.html" class="title">
 					<img src = "images/RPS-logo.svg"/>
 					<p>RPS</p>
-				</div>
-				<nav>
-					<a>Projects</a>
-				</nav>
+				</a>
+				<a class = "github-link" href = "https://github.com/figueiredoUm">
+					<img class = "github-icon" src= "images/github.svg">
+				</a>	
 			</div>
 		</header>
 
 		<main>
-			
-			<div class = "game-container flex-center">
-				<div class = "buttons flex-center">
-					<div id = "rock" class="button-container flex-center">
-						<button id = "rock" onclick="play(1);">
-							<img class="img" src="images/rock.png" />
-						</button>
-					</div>
-
-					<div id = "paper" class= "button-container flex-center">
-						<button onclick="play(2);">
-							<img class="img" src="images/paper.png" />
-						</button>
-					</div>
-
-					<div id = "scissors" class="button-container flex-center">
-						<button onclick="play(3);">
-							<img id = "scissors" class="img" src="images/scissors.png" />
-						</button>
-					</div>
-				</div>
-
-				<div class="vs flex-center">Vs</div>
-				
-				<button class="computer">?</button>
-				
-			</div>
-
 			<div class="results-container">
-				<div class="current-result-container flex-center">
-					<p class="text">Result:</p>
+				<div class="current-result">
+					<p class="text">&#9679; Result:</p>
 					<p id="result"></p>
 				</div>
 				<div class="score">
@@ -75,12 +47,31 @@
 						<p>Ties:</p>
 						<p id="ties">0</p>
 					</div>
-				</div>
-				<div class="clear flex-center">
-					<button onclick="clearResult();">Clear</button>
+						<button class = "clear" onclick="clearResult();">Clear</button>
 				</div>
 			</div>
+
+			<div id = "game-container">
+				<button id = "rock" onclick="play(1);">
+					<img class="img" src="images/rock.png" />
+				</button>
+
+				<button id = "paper" onclick="play(2);">
+					<img class="img" src="images/paper.png" />
+				</button>
+
+				<button id = "scissors"  onclick="play(3);">
+					<img class="img" src="images/scissors.png" />
+				</button>
+
+				<div id="vs" class = "flex-center">Vs</div>
+				
+				<button id="computer">?</button>
+
+				<button id = "continue" onclick = "continueGame();">Continue</button>
+			</div>
 		</main>
+		
 
 	</body>
 </html>
