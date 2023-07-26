@@ -1,10 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="500" height="500" viewBox="0 0 500 500" xml:space="preserve">
-<desc>Created with Fabric.js 5.3.0</desc>
-<defs>
-</defs>
-<g transform="matrix(4.414591035 0 0 4.414591035 250 250)" id="DDGfmCR0geedwh3lrPlJo"  >
-<path style="stroke: rgb(40,172,200); stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(27,66,152); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(-55.1906252712, -55.1906252712)" d="M 68.55961 5.53761 L 104.84364000000001 41.82164 C 112.22713 49.205130000000004 112.22713 61.17612 104.84364000000001 68.55961 L 68.55961 104.84364000000001 C 61.176120000000004 112.22713 49.20513000000001 112.22713 41.82164 104.84364000000001 L 5.537610000000001 68.55961 C -1.8458799999999993 61.176120000000004 -1.8458799999999993 49.20513000000001 5.537610000000001 41.82164 L 17.77993 29.579320000000003 L 19.95268 30.552450000000004 L 65.43534 50.923190000000005 L 44.20305 3.5168600000000083 C 51.58886 -1.7697499999999913 61.92583 -1.0961699999999919 68.55960999999999 5.537610000000008 z" stroke-linecap="round" />
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#5278e0}</style><path d="M144 0C117.5 0 96 21.5 96 48V96v28.5V176c0 8.8-7.2 16-16 16s-16-7.2-16-16V149.3l-9 7.5C40.4 169 32 187 32 206V244c0 38 16.9 74 46.1 98.3L128 384v96c0 17.7 14.3 32 32 32H320c17.7 0 32-14.3 32-32V374.7c46.9-19 80-65 80-118.7V176 160 144c0-26.5-21.5-48-48-48c-12.4 0-23.6 4.7-32.1 12.3C350 83.5 329.3 64 304 64c-12.4 0-23.6 4.7-32.1 12.3C270 51.5 249.3 32 224 32c-12.4 0-23.6 4.7-32.1 12.3C190 19.5 169.3 0 144 0z"/></svg>

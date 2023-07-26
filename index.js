@@ -98,6 +98,7 @@ function displayChoiceAnimation(number){
     nonSelected2 = 'paper';
   }
   
+  selectedElement.className = '';
   selectedElement.style.pointerEvents = 'none';
   document.getElementById(nonSelected1).style.pointerEvents = 'none';
   document.getElementById(nonSelected2).style.pointerEvents = 'none';
@@ -108,11 +109,6 @@ function displayChoiceAnimation(number){
     let animateElement = 'animate-'
     animateElement += selected;
     selectedElement.classList.add(animateElement);
-
-    setTimeout(function(){
-      selectedElement.style.gridArea = '2 / 1 / 3 / 2';
-      selectedElement.classList.remove(animateElement);
-    }, 700);
   }
 }
 
@@ -140,28 +136,22 @@ function continueGame() {
   if(selected === 'paper') {
     document.getElementById(nonSelected1).style.opacity = '1';
     document.getElementById(nonSelected2).style.opacity = '1';
+    selectedElement.style.pointerEvents = 'all';
+    document.getElementById(nonSelected1).style.pointerEvents = 'all';
+    document.getElementById(nonSelected2).style.pointerEvents = 'all';
   } else {
 
-    let animateElement = 'animate-' + nonSelected2; //NonSel2 plays opposite animation, if sel=rock, nonSel2=scissors and vice-versa
-
-    selectedElement.classList.add(animateElement);
+    selectedElement.classList.add('animate-continue');
 
     setTimeout(function(){
       document.getElementById(nonSelected1).style.opacity = '1';
       document.getElementById(nonSelected2).style.opacity = '1';
-      if(selected === 'scissors') {
-        selectedElement.style.gridArea = '3 / 1 / 4 / 2';
-        selectedElement.classList.remove(animateElement);
-      } else {
-        selectedElement.style.gridArea = '1 / 1 / 2 / 2'
-        selectedElement.classList.remove(animateElement);
-      }
-    }, 700);
-  }
 
-  selectedElement.style.pointerEvents = 'all';
-  document.getElementById(nonSelected1).style.pointerEvents = 'all';
-  document.getElementById(nonSelected2).style.pointerEvents = 'all';
+      selectedElement.style.pointerEvents = 'all';
+      document.getElementById(nonSelected1).style.pointerEvents = 'all';
+      document.getElementById(nonSelected2).style.pointerEvents = 'all';
+    }, 300);
+  }
 }
 
 function clearResult() {

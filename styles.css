@@ -24,6 +24,7 @@
 
   main .score {
     flex-direction: row;
+    gap: 30px;
   }
 
   main .results-container {
@@ -40,8 +41,7 @@
   body main #game-container {
     grid-template-columns: 100px 70px 100px;
     grid-template-rows: 100px 100px 100px;
-    gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 }
 
@@ -52,7 +52,6 @@
   body main #game-container {
     grid-template-columns: 70px 70px 70px;
     grid-template-rows: 70px 70px 70px;
-    gap: 10px;
     margin-bottom: 20px;
   }
 }
@@ -112,17 +111,26 @@ header {
   margin-block: -12px;
   font-size: var(--big);
   font-weight: 700;
-  color: var(--blue);
+  color: var(--light-gray);
 }
 
 .title img {
-  width: 40px;
+  width: 35px;
+}
+
+.github-link {
+  gap: 4px;
+}
+
+.github-link p {
+  color: var(--light-gray);
+  font-size: var(--small);
 }
 
 .github-icon,
 .github-link {
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
 }
 
 
@@ -140,7 +148,7 @@ main {
   display: grid;
   grid-template-columns: 100px 100px 100px;
   grid-template-rows: 100px 100px 100px;
-  gap: 14px;
+  gap: 10px;
   margin-bottom: 50px;
   grid-area: 1 / 2 / 2 / 3;
 }
@@ -276,19 +284,16 @@ button:active,
 }
 
 .animate-rock {
-  animation: rock .695s;
+  transform: translateY(110px);
+  transition: transform 0.65s;
 }
 
 .animate-scissors {
-  animation: scissors .695s;
+  transform: translateY(-110px);
+  transition: transform 0.65s;
 }
 
-@keyframes rock {
-  0%   {left: 0px; top: 0px;}
-  100% {left: 0px; top: 114px;}
-}
-
-@keyframes scissors {
-  0%   {left: 0px; top: 0px;}
-  100% {left: 0px; top: -114px;}
+.animate-continue {
+  transform: translateY(0px);
+  transition: transform 0.65s;
 }
