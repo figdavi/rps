@@ -28,28 +28,7 @@
 		</header>
 
 		<main>
-			<div class="results-container">
-				<div class="current-result">
-					<p class="text">&#9679; Result:</p>
-					<p id="result"></p>
-				</div>
-				<div class="score">
-					<div>
-						<p>Wins:</p>
-						<p id="wins">0</p>
-					</div>
-					<div>
-						<p>Losses:</p>
-						<p id="losses">0</p>
-					</div>
-
-					<div>
-						<p>Ties:</p>
-						<p id="ties">0</p>
-					</div>
-						<button class = "clear" onclick="clearResult();">Clear</button>
-				</div>
-			</div>
+			
 
 			<div id = "game-container">
 				<button id = "rock" onclick="play(1);">
@@ -69,6 +48,29 @@
 				<button id="computer">?</button>
 
 				<button id = "continue" onclick = "continueGame();">Continue</button>
+			</div>
+
+			<div class="results-container">
+				<div class="current-result">
+					<p class="text">&#9679; Result:</p>
+					<p id="result"></p>
+				</div>
+				<div class="score">
+					<div>
+						<p>Wins:</p>
+						<p id="wins">0</p>
+					</div>
+					<div>
+						<p>Losses:</p>
+						<p id="losses">0</p>
+					</div>
+
+					<div>
+						<p>Ties:</p>
+						<p id="ties">0</p>
+					</div>
+				</div>
+					<button class = "clear" onclick="clearResult();">Clear</button>
 			</div>
 		</main>
 		
