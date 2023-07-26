@@ -156,8 +156,10 @@ main {
 /* Grid Placement Start*/
 
 #rock {
+  z-index: 100;
   grid-area: 1 / 1 / 2 / 2;
 }
+
 #paper {
   grid-area: 2 / 1 / 3 / 2;
 }
@@ -191,7 +193,7 @@ button {
   border-radius: 3px;
   background-color: var(--gray);
   padding: 6px;
-  transition: opacity 0.3s, background-color 0.3s !important;
+  transition: opacity 0.3s, background-color 0.3s;
 }
 
 button:hover, .clear button:hover {
@@ -285,15 +287,15 @@ button:active,
 
 .animate-rock {
   transform: translateY(110px);
-  transition: transform 0.65s;
+  transition: transform 0.65s !important;
 }
 
 .animate-scissors {
   transform: translateY(-110px);
-  transition: transform 0.65s;
+  transition: transform 0.65s !important;
 }
 
 .animate-continue {
   transform: translateY(0px);
-  transition: transform 0.65s;
+  transition: transform 0.65s !important;
 }
