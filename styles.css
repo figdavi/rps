@@ -54,6 +54,15 @@
     grid-template-rows: 70px 70px 70px;
     margin-bottom: 20px;
   }
+
+  .animate-rock {
+    transform: translateY(80px) !important;
+  }
+  
+  .animate-scissors {
+    transform: translateY(-80px)!important;
+  }
+
 }
 
 * {
